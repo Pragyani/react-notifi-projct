@@ -2,30 +2,35 @@ import React, { useState } from "react";
 
 const ToastNotifiContainer = () => {
 
-    const [showToast, setShowToast] = useState();
+    const [showToast, setShowToast] = useState([]);
 
-    const handleToastAdd = () => {
-        setShowToast(true);
-        setTimeout(handleToastClose, 5000)
+    const handleToastAdd = (message, type) => {
+
+        const newToast = [...showToast, { message, type }];
+        setShowToast(newToast);
     }
 
-    const handleToastClose = () => {
-        setShowToast(false)
-    }
+    const handleToastClose = () => { }
 
     return (
         <>
             <div className="container">
                 <div className="toast-container">
-                    {showToast && (<div className="toast">
-                        Success Toast <span onClick={handleToastClose}>x</span>
-                    </div>)}
+                    {
+                        showToast.map(({ message, type }) => {
+                            return (
+                                <div className="toast">
+                                    {message}<span onClick={handleToastClose}>x</span>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
                 <div className="button-toast-box">
-                    <button onClick={handleToastAdd}>Success Toast</button>
-                    <button>Info Toast</button>
-                    <button>Warning Toast</button>
-                    <button>Error Toast</button>
+                    <button onClick={() => handleToastAdd('Success', 'success')}>Success Toast</button>
+                    <button onClick={() => handleToastAdd('Info', 'info')}>Info Toast</button>
+                    <button onClick={() => handleToastAdd('Warning', 'warning')}>Warning Toast</button>
+                    <button onClick={() => handleToastAdd('Error', 'error')}>Error Toast</button>
                 </div>
             </div>
         </>
