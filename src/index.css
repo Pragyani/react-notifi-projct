@@ -14,9 +14,6 @@ body {
   margin-top: 9pc;
 }
 
-.container .button-toast-box {
-  margin-left: 32pc;
-}
 
 .button-toast-box button {
   margin: 10px;
@@ -45,6 +42,7 @@ body {
   color: whitesmoke;
   position: relative;
   animation: slide 1s 1;
+  margin: 0.5rem;
 
   span {
     position: absolute;
@@ -54,12 +52,12 @@ body {
   }
 }
 
-@keyframes slide{
-  0%{
-    transform:translateX(100%);
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
   }
 
-  100%{
+  100% {
     transform: translateX(0%);
   }
 }
