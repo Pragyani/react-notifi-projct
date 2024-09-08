@@ -32,7 +32,6 @@ body {
 }
 
 .toast {
-  background-color: green;
   width: 23rem;
   padding: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,4 +59,20 @@ body {
   100% {
     transform: translateX(0%);
   }
+}
+
+.error {
+  background-color: rgb(208, 63, 63);
+}
+
+.warning {
+  background-color: #fca200;
+}
+
+.info {
+  background-color: rgb(55, 158, 214);
+}
+
+.success {
+  background-color: rgb(45, 140, 78);
 }
