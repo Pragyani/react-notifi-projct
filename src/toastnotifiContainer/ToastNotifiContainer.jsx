@@ -19,7 +19,7 @@ const ToastNotifiContainer = () => {
                     {
                         showToast.map(({ message, type }) => {
                             return (
-                                <div className="toast">
+                                <div className={`toast ${type}`}>
                                     {message}<span onClick={handleToastClose}>x</span>
                                 </div>
                             )
@@ -27,10 +27,10 @@ const ToastNotifiContainer = () => {
                     }
                 </div>
                 <div className="button-toast-box">
-                    <button onClick={() => handleToastAdd('Success', 'success')}>Success Toast</button>
-                    <button onClick={() => handleToastAdd('Info', 'info')}>Info Toast</button>
-                    <button onClick={() => handleToastAdd('Warning', 'warning')}>Warning Toast</button>
-                    <button onClick={() => handleToastAdd('Error', 'error')}>Error Toast</button>
+                    <button onClick={() => handleToastAdd('Success Toast', 'success')}>Success Toast</button>
+                    <button onClick={() => handleToastAdd('Info Toast', 'info')}>Info Toast</button>
+                    <button onClick={() => handleToastAdd('Warning Toast', 'warning')}>Warning Toast</button>
+                    <button onClick={() => handleToastAdd('Error Toast', 'error')}>Error Toast</button>
                 </div>
             </div>
         </>
