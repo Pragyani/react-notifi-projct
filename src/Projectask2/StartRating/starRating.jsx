@@ -8,11 +8,11 @@ const StarRating = ({ StarCount = 10 }) => {
     return (
         <>
             <div className="container">
-                {new Array(StarCount).fill(0).map((index,_) => {
+                {new Array(StarCount).fill(0).map((_, index) => {
                     return (
-                        <span key={index} 
-                        onClick={() => setStarColored(index + 1)}
-                         className={index < starColored ? "gold" : ""}>&#9733;</span>
+                        <span key={index}
+                            onClick={() => setStarColored(index + 1)}
+                            className={index < starColored ? "gold" : ""}>&#9733;</span>
                     )
                 })}
             </div>
