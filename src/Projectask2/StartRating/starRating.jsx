@@ -3,7 +3,7 @@ import './rating.css';
 
 const StarRating = ({ StarCount = 10 }) => {
     const [starColored, setStarColored] = useState(0);
-    const [starHover, setStarHover] =useState();
+    const [starHover, setStarHover] = useState(0);
     console.log('intialState', starColored);
     console.log('array', StarCount)
     console.log('hoverindex', starHover);
@@ -14,8 +14,9 @@ const StarRating = ({ StarCount = 10 }) => {
                     return (
                         <span key={index}
                             onClick={() => setStarColored(index + 1)}
-                            onMouseEnter={()=>setStarHover(index +1)}
-                            className={index < starColored  || index < starHover ? "gold" : ""}>&#9733;</span>
+                            onMouseEnter={() => setStarHover(index + 1)}
+                            onMouseLeave={() => setStarHover(0)}
+                            className={starHover == 0 && index < starColored || index < starHover ? "gold" : ""}>&#9733;</span>
                     )
                 })}
             </div>
