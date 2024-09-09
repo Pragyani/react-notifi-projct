@@ -3,10 +3,11 @@ import React, { useState } from "react";
 const ToastNotifiContainer = () => {
 
     const [showToast, setShowToast] = useState([]);
-
+    console.log('toastData', showToast)
     const handleToastAdd = (message, type) => {
+        const id = new Date().getTime();
 
-        const newToast = [...showToast, { message, type }];
+        const newToast = [...showToast, { id, message, type }];
         setShowToast(newToast);
     }
 
@@ -17,9 +18,9 @@ const ToastNotifiContainer = () => {
             <div className="container">
                 <div className="toast-container">
                     {
-                        showToast.map(({ message, type }) => {
+                        showToast.map(({ id, message, type }) => {
                             return (
-                                <div className={`toast ${type}`}>
+                                <div className={`toast ${type}`} key={id}>
                                     {message}<span onClick={handleToastClose}>x</span>
                                 </div>
                             )
