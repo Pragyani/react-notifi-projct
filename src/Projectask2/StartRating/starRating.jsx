@@ -1,10 +1,16 @@
 import React from "react";
 import './rating.css';
 
-const StarRating = ()=>{
+const StarRating = ({StarCount = 10})=>{
     return(
         <>
-        <h1>hey , this is star rating componnets</h1>
+        <div className="container">
+            {new Array(StarCount).fill(0).map(()=>{
+                return(
+                    <span>&#9733;</span>
+                )
+            })}
+        </div>
         </>
     )
 }
