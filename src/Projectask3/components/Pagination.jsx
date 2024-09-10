@@ -3,7 +3,11 @@ import React from "react";
 const Pagination = ()=>{
     return(
         <>
-        <h2>Pagiantion</h2>
+     <div className="pagination-container">
+        <div className="page-btn">{"<"}</div>
+        <div className="page-btn">1</div>
+        <div className="page-btn">{">"}</div>
+     </div>
         </>
     )
 }
