@@ -1,0 +1,17 @@
+/* body{
+    background-color: black;
+    color: white;
+} */
+
+.post-container{
+    width: 50%;
+    height: 200px;
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-evenly;
+}
+img{
+    height: 210px;
+    width: 160px;
+    border-radius: 12px;
+}
