@@ -11,7 +11,12 @@ const ToastNotifiContainer = () => {
         setShowToast(newToast);
     }
 
-    const handleToastClose = () => { }
+    const handleToastClose = (id) => {
+        const filterArr = showToast.filter((showToast) => {
+            return showToast.id !== id;
+        });
+        setShowToast(filterArr);
+    }
 
     return (
         <>
@@ -21,7 +26,7 @@ const ToastNotifiContainer = () => {
                         showToast.map(({ id, message, type }) => {
                             return (
                                 <div className={`toast ${type}`} key={id}>
-                                    {message}<span onClick={handleToastClose}>x</span>
+                                    {message}<span onClick={() => handleToastClose(id)}>x</span>
                                 </div>
                             )
                         })
