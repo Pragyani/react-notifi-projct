@@ -5,14 +5,14 @@ import Pagination from "./Pagination";
 const Post = () => {
 
     const [data, setData] = useState([]);
-
+const [pageNo , setPageNo] = useState(1); 
     useEffect(() => {
         getData();
     }, []);
 
     const getData = async (url) => {
         try {
-            const response = await fetch('https://picsum.photos/v2/list?page=1&limit=5');
+            const response = await fetch(`https://picsum.photos/v2/list?page=${pageNo}&limit=5`);
             // console.log('data getig', response);
             const data = await response.json();
             console.log(data);
@@ -34,7 +34,7 @@ const Post = () => {
                     }
 
                 </div>
-                <Pagination />
+                <Pagination pageNo={pageNo} setPageNo={setPageNo}/>
             </div>
 
         </>
