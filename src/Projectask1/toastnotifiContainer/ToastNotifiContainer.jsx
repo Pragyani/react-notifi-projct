@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const ToastNotifiContainer = () => {
 
     const [showToast, setShowToast] = useState([]);
-    console.log('toastData', showToast)
+    const timeRef = useRef({});
+    console.log(timeRef)
+    
     const handleToastAdd = (message, type) => {
         const id = new Date().getTime();
 
         const newToast = [...showToast, { id, message, type }];
         setShowToast(newToast);
+        timeRef.current[id] = setTimeout(() => handleToastClose(id), 5000)
     }
 
     const handleToastClose = (id) => {
-        const filterArr = showToast.filter((showToast) => {
-            return showToast.id !== id;
+        clearTimeout(timeRef.current[id]);
+        delete timeRef.current[id];
+        setShowToast((prevtoast) => {
+            const filterArr = prevtoast.filter((showToast) => {
+                return showToast.id !== id;
+            });
+            return filterArr;
         });
-        setShowToast(filterArr);
     }
 
     return (
