@@ -15,7 +15,7 @@ const Post = () => {
             const response = await fetch('https://picsum.photos/v2/list?page=1&limit=5');
             // console.log('data getig', response);
             const data = await response.json();
-            // console.log(data);
+            console.log(data);
             setData(data);
         } catch {
             console.log('erorr found ')
@@ -25,7 +25,14 @@ const Post = () => {
         <>
             <div className="container-p">
                 <div className="post-container">
-                    <img src="https://picsum.photos/id/30/1280/901" alt="pgition-imge" />
+                    {
+                        data.map((item, index) => {
+                            return (
+                                <img src={item.download_url} alt="pgition-imge" />
+                            )
+                        })
+                    }
+
                 </div>
                 <Pagination />
             </div>
